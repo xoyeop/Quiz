@@ -6,8 +6,6 @@
 	
 	ini_set('display_errors', 1);
 
-	echo "hello";
-
 	// 컨텐츠 타입이 JSON 인지 확인한다
 	if(!in_array('application/json',explode(';',$_SERVER['CONTENT_TYPE']))){
 		echo json_encode(array('result_code' => '400'));
@@ -20,12 +18,14 @@
 	/*
 	처리부
 	*/
+	$fpos = "./answer/";
+
 	$rn = mt_rand(0,999999);
-	$fname = "user" . $rn . ".json";
+	$fname = $fpos . "user" . $rn . ".json";
 	
 	while (file_exists($fname)) {
 		$_rn = mt_rand(0,999999);
-		$fname = "user" . $rn . ".json";
+		$fname = $fpos . "user" . $rn . ".json";
 	}
 	
 	file_put_contents($fname, json_encode($__getData));
