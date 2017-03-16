@@ -138,6 +138,7 @@ export class ResultComponent {
 			this.bra = "No Size";
 		}
 
+		/*
 		if (brafit.includes(2) || brafit.includes(3)) {
 			const tmp_b: string = this.bra.substr(0,2);
 			const tmp_c: string = this.bra.substr(2,1);
@@ -151,6 +152,7 @@ export class ResultComponent {
 			else if (tmp_c == "F") this.bra = tmp_b + "G";
 			else if (tmp_c == "G") this.bra = tmp_b + "H";
 		}
+		*/
 	}
 	
 	findBustPad(bustsize: string) {

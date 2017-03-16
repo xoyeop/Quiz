@@ -38,7 +38,7 @@ export class BandfitComponent {
 		private globals: Globals
 	) {}
 
-	selectedBand: string[] = [];
+	selectedBand: number[] = [];
 
 	goBack() {
 		this.router.navigate(['/brafit']);
