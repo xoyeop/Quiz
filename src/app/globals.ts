@@ -6,8 +6,12 @@ Injectable()
 export class Globals {
 	underSize: number;
 	upperSize: number;
-	bustSize: string;
-	shoulderStatus: string;
+
+	brafitA: number[];
+	bandfitA: number[];
+
+	bustsizeA: string;
+	shoulderA: number;
 
 	vProduct: VProd;
 }

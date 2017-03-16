@@ -34,8 +34,10 @@ export class BustSizeComponent {
 	}
 
 	goNext() {
+		this.globals.bustsizeA = null;
+		this.globals.bustsizeA = this.selectedBustSize;
 
-		this.router.navigate(['/others']);
+		this.router.navigate(['/shoulder']);
 	}
 
 }
