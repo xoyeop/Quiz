@@ -9,23 +9,23 @@ import { Globals } from './globals';
 		<h3>현재 브래지어의 피팅 상태는 어떤가요?</h3>
 		<div class="ui-g" style="text-align: center">
 			<div class="ui-g-4">
-				<img src="./resources/img/brafit_img_1.png" width="200px" /><br/>
+				<img src="./resources/img/brafit_img_1.png" width="70%" /><br/>
 				<p-checkbox name="group1" value="1" label="잘 맞는다." [(ngModel)]="selectedFit"></p-checkbox><br/>
 			</div>
 			<div class="ui-g-4">
-				<img src="./resources/img/brafit_img_2.png" width="200px" /><br/>
+				<img src="./resources/img/brafit_img_2.png" width="70%" /><br/>
 				<p-checkbox name="group1" value="2" label="캡 위로 가슴이 비어져 나온다." [(ngModel)]='selectedFit'></p-checkbox><br/>
 			</div>
 			<div class="ui-g-4">
-				<img src="./resources/img/brafit_img_3.png" width="200px" /><br/>
+				<img src="./resources/img/brafit_img_3.png" width="70%" /><br/>
 				<p-checkbox name="group1" value="3" label="옆구리 살이 비어져 나온다." [(ngModel)]='selectedFit'></p-checkbox><br/>
 			</div>
 			<div class="ui-g-6">
-				<img src="./resources/img/brafit_img_4.png" width="200px" /><br/>
+				<img src="./resources/img/brafit_img_4.png" width="50%" /><br/>
 				<p-checkbox name="group1" value="4" label="캡 위쪽이 빈다." [(ngModel)]='selectedFit'></p-checkbox><br/>
 			</div>
 			<div class="ui-g-6">
-				<img src="./resources/img/brafit_img_5.png" width="200px" /><br/>
+				<img src="./resources/img/brafit_img_5.png" width="50%" /><br/>
 				<p-checkbox name="group1" value="5" label="캡 중간이 빈다." [(ngModel)]='selectedFit'></p-checkbox><br/>
 			</div>
 		</div>

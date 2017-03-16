@@ -7,8 +7,8 @@ import { ButtonModule } from 'primeng/primeng';
   selector: 'my-app',
   template: `
 		<div style='margin: 0 auto;'>
-		<h1>VinaJ Fitting Quiz</h1>
-		<router-outlet></router-outlet>
+			<h1>VinaJ Fitting Quiz</h1>
+			<router-outlet></router-outlet>
 		</div>
 	`,
 })

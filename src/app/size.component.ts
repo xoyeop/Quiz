@@ -9,7 +9,7 @@ import { InputTextModule, ButtonModule } from 'primeng/primeng';
 	selector: 'size',
 	template: `
 		<h3>가슴둘레를 측정해 주세요.</h3>
-		<img src="./resources/img/size_img.png" width="80%"/>
+		<img src="./resources/img/size_img.png" width="70%"/>
 		<div class="ui-g">
 			<div class="ui-g-3">밑가슴 둘레:</div>
 			<div class="ui-g-9"><input type="number" pInputText [(ngModel)]="underSize" /> mm</div>
