@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 
-import { VProd } from './const/vprod';
+import { VPROD } from './const/vprod';
+import { USER } from './const/user';
 
-Injectable()
+@Injectable()
 export class Globals {
+	vinaProduct: VPROD;
+	
 	underSize: number;
 	upperSize: number;
+
+	padSize: number;
 
 	brafitA: number[];
 	bandfitA: number[];
@@ -13,5 +18,13 @@ export class Globals {
 	bustsizeA: string;
 	shoulderA: number;
 
-	vProduct: VProd;
+	otherProd: VPROD;
+
+	preferA: number;
+	colorA: string[];
+	materialA: string[];
+
+	wayA: string;
+
+	userA: USER;
 }

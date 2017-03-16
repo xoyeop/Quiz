@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Globals } from './globals';
+
 import { SelectItem } from 'primeng/primeng';
 
-import { VProd } from './const/vprod';
+import { VPROD } from './const/vprod';
 
 @Component({
 	selector: 'product',
@@ -42,12 +44,13 @@ export class ProductComponent {
 	busts: SelectItem[] = [];
 	cups: SelectItem[] = [];
 
-	selectedProduct: string;
-	selectedBust: number;
-	selectedCup: string;
+	selectedProduct: string = 'iconic' ;
+	selectedBust: number = 65;
+	selectedCup: string = 'A';
 
 	constructor(
 		private router: Router,
+		private globals: Globals
 	) {
 
 		this.products = [];
@@ -77,7 +80,10 @@ export class ProductComponent {
 	}
 
 	goNext() {
-		console.log(this.selectedProduct);
+		this.globals.vinaProduct = new VPROD();	
+		this.globals.vinaProduct.name = this.selectedProduct;
+		this.globals.vinaProduct.bust = this.selectedBust;
+		this.globals.vinaProduct.cup = this.selectedCup;
 
 		this.router.navigate(['/size']);
 	}

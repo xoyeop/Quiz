@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AppService } from './app.service';
 
 import { Globals } from './globals';
+import { VPROD } from './const/vprod';
+import { USER } from './const/user';
 
 @Component({
 	selector: 'result',
@@ -40,24 +42,46 @@ export class ResultComponent {
 	}
 
 	save() {
+		const vprod: VPROD = this.globals.vinaProduct;
+
 		const upper: number = this.globals.upperSize;
 		const under: number = this.globals.underSize;
+
+		const pad: number = this.globals.padSize;
 
 		const brafit: number[] = this.globals.brafitA;
 		const bandfit: number[] = this.globals.bandfitA;
 
 		const bustsize: string = this.globals.bustsizeA;
 		const shoulder: number = this.globals.shoulderA;
+
+		const others: VPROD = this.globals.otherProd;
+
+		const prefer: number = this.globals.preferA;
+		const color: string[] = this.globals.colorA;
+		const material: string[] = this.globals.materialA;
+		
+		const way: string = this.globals.wayA;
+
+		const user: USER = this.globals.userA;
 		
 		const data: any[] = [];
 
 		data.push({ 
+			vinaProduct: vprod,
 			upper: upper,
 			under: under,
+			padsize: pad,
 			brafit: brafit,
 			bandfit: bandfit,
 			bustsize: bustsize,
-			shoulder: shoulder
+			shoulder: shoulder,
+			otherProduct: others,
+			prefer: prefer,
+			color: color,
+			material: material,
+			way: way,
+			user: user,
 		});
 
 		this.service.saveQuiz(data)

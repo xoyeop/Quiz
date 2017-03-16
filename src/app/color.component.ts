@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Globals } from './globals';
+
 @Component({
 	selector: 'color',
 	template: `
@@ -26,7 +28,8 @@ import { Router } from '@angular/router';
 
 export class ColorComponent {
 	constructor(
-		private router: Router
+		private router: Router,
+		private globals: Globals
 	) {}
 
 	selectedColor: string[] = [];
@@ -36,6 +39,9 @@ export class ColorComponent {
 	}
 
 	goNext() {
+		this.globals.colorA = [];
+		this.globals.colorA = this.selectedColor;
+
 		this.router.navigate(['/material']);
 	}
 
