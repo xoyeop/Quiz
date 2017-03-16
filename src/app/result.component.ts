@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AppService } from './app.service';
+
 import { Globals } from './globals';
 
 @Component({
@@ -12,6 +14,7 @@ import { Globals } from './globals';
 		왼쪽 가슴에 적당한 패드를 대세요.</p>
 		<br/>
 		<button pButton type='button' (click)='onClick()' label='처음으로'></button>
+		<button pButton type='button' (click)='save()' label='SAVE'></button>
 	`,
 	styles: [`
 		h3, h2, p, button {
@@ -24,13 +27,28 @@ export class ResultComponent {
 
 	constructor(
 		private router: Router,
-		private globals: Globals
+		private globals: Globals,
+		private service: AppService
 	) {}
 
 	bra: string = null;
 	
 	onClick() {
 		this.router.navigate(['/start']);
+	}
+
+	save() {
+		const upper: number = this.globals.upperSize;
+		const under: number = this.globals.underSize;
+		
+		const data: any[] = [];
+
+		data.push({ upper: upper, under: under });
+
+		this.service.saveQuiz(data)
+			.then(()=>{
+				console.log(data);
+		});
 	}
 	
 	ngOnInit(): void {

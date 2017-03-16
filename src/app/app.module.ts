@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { RouterModule }				 from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { ButtonModule,
 					SelectItem,
@@ -33,8 +34,11 @@ import { WayComponent } from './way.component';
 import { UserComponent } from './user.component';
 import { ResultComponent } from './result.component';
 
+import { AppService } from './app.service';
+
 @NgModule({
   imports:      [
+		HttpModule,
 		BrowserModule,
 		FormsModule,
 		AppRoutingModule,
@@ -66,6 +70,7 @@ import { ResultComponent } from './result.component';
 	],
 	providers: [
 		Globals,
+		AppService
 	],
   bootstrap:    [ AppComponent ]
 })

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { SelectItem } from 'primeng/primeng';
 
+import { VProd } from './const/vprod';
+
 @Component({
 	selector: 'product',
 	template: `
@@ -41,33 +43,33 @@ export class ProductComponent {
 	cups: SelectItem[] = [];
 
 	selectedProduct: string;
-	selectedBust: string;
+	selectedBust: number;
 	selectedCup: string;
 
 	constructor(
-		private router: Router
+		private router: Router,
 	) {
 
 		this.products = [];
-		this.products.push({label: 'Select Product', value: null});
-		this.products.push({label: '아이코닉', value: {id:1, name: '아이코닉', code: 'IC'}});
-		this.products.push({label: '로고온', value: {id: 2, name: '로고온', code: 'LO'}});
-		this.products.push({label: '저중심', value: {id: 3, name: '저중심', code: 'LC'}});
+		this.products.push({ label: '아이코닉', value: 'iconic' });
+		this.products.push({ label: '로고온', value: 'logoon'});
+		this.products.push({ label: '저중심', value: 'low' });
 
 		this.busts = [];
-		this.busts.push({label: '65', value: {id: 1, code: '65'}});
-		this.busts.push({label: '70', value: {id: 2, code: '70'}});
-		this.busts.push({label: '75', value: {id: 3, code: '75'}});
-		this.busts.push({label: '80', value: {id: 4, code: '80'}});
-		this.busts.push({label: '85', value: {id: 5, code: '85'}});
-		this.busts.push({label: '90', value: {id: 6, code: '90'}});
+		this.busts.push({ label: '65', value: 65 });
+		this.busts.push({ label: '70', value: 70 });
+		this.busts.push({ label: '75', value: 75 });
+		this.busts.push({ label: '80', value: 80 });
+		this.busts.push({ label: '85', value: 85 });
+		this.busts.push({ label: '90', value: 90 });
 
 		this.cups = [];
-		this.cups.push({label: 'A', value: {id: 1, code: 'A'}});
-		this.cups.push({label: 'B', value: {id: 2, code: 'B'}});
-		this.cups.push({label: 'C', value: {id: 3, code: 'C'}});
-		this.cups.push({label: 'D', value: {id: 4, code: 'D'}});
-		this.cups.push({label: 'E', value: {id: 5, code: 'E'}});
+		this.cups.push({label: 'A', value: 'A'});
+		this.cups.push({label: 'B', value: 'B'});
+		this.cups.push({label: 'C', value: 'C'});
+		this.cups.push({label: 'D', value: 'D'});
+		this.cups.push({label: 'E', value: 'E'});
+		this.cups.push({label: 'F', value: 'F'});
 	}
 
 	goBack() {
@@ -75,6 +77,8 @@ export class ProductComponent {
 	}
 
 	goNext() {
+		console.log(this.selectedProduct);
+
 		this.router.navigate(['/size']);
 	}
 
