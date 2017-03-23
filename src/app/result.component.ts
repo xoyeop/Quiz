@@ -51,8 +51,8 @@ export class ResultComponent {
 		const pad: number = this.globals.padSize;
 		const preferPad: number = this.globals.preferPadSize;
 
-		const brafit: number[] = this.globals.brafitA;
-		const bandfit: number[] = this.globals.bandfitA;
+		const brafit: string[] = this.globals.brafitA;
+		const bandfit: string[] = this.globals.bandfitA;
 
 		const bustsize: string = this.globals.bustsizeA;
 		const shoulder: number = this.globals.shoulderA;
@@ -99,8 +99,8 @@ export class ResultComponent {
 		const upper: number = this.globals.upperSize;
 		const under: number = this.globals.underSize;
 
-		const brafit: number[] = this.globals.brafitA; 
-		const bandfit: number[] = this.globals.bandfitA;
+		const brafit: string[] = this.globals.brafitA; 
+		const bandfit: string[] = this.globals.bandfitA;
 
 		var cup = (upper - under);
 		this.findBraSize(cup, under, brafit, bandfit);
@@ -112,17 +112,17 @@ export class ResultComponent {
 		this.findShoulder(shoulder);
 	}
 
-	findBraSize(cup: number, under: number, brafit: number[], bandfit: number[]) {
-		const sizeArr: string[] = [];
-		sizeArr[0] = ["65AA", "65A", "65B", "65C", "65D", "65DE", "65F", "65G", "65H", "65I"];
-		sizeArr[1] = ["No Size", "70AA", "70A", "70B", "70C", "70D", "70E", "70F", "70G", "70H"];
-		sizeArr[2] = ["No Size", "No Size", "75AA", "75A", "75B", "75C", "75D", "75E", "75F", "75G"];
-		sizeArr[3] = ["No Size", "No Size", "No Size", "80AA", "80A", "80B", "80C", "80D", "80E", "80F"];
-		sizeArr[4] = ["No Size", "No Size", "No Size", "No Size", "85AA", "85A", "85B", "85C", "85D", "85E"];
-		sizeArr[5] = ["No Size", "No Size", "No Size", "No Size", "No Size", "90AA", "90A", "90B", "90C", "90D"];
+	findBraSize(cup: number, under: number, brafit: string[], bandfit: string[]) {
+		const sizeArr: any[] = [];
+		sizeArr.push(["65AA", "65A", "65B", "65C", "65D", "65DE", "65F", "65G", "65H", "65I"]);
+		sizeArr.push(["No Size", "70AA", "70A", "70B", "70C", "70D", "70E", "70F", "70G", "70H"]);
+		sizeArr.push(["No Size", "No Size", "75AA", "75A", "75B", "75C", "75D", "75E", "75F", "75G"]);
+		sizeArr.push(["No Size", "No Size", "No Size", "80AA", "80A", "80B", "80C", "80D", "80E", "80F"]);
+		sizeArr.push(["No Size", "No Size", "No Size", "No Size", "85AA", "85A", "85B", "85C", "85D", "85E"]);
+		sizeArr.push(["No Size", "No Size", "No Size", "No Size", "No Size", "90AA", "90A", "90B", "90C", "90D"]);
 
-		const braIndex: number = 5;
-		const cupIndex: number = 0;
+		let braIndex: number = 5;
+		let cupIndex: number = 0;
 
 		if ( under >= 600 && 650 >= under ) {
 			braIndex = 0;
@@ -187,25 +187,25 @@ export class ResultComponent {
 			else if ( 160 >= cup ) cupIndex = 9;
 		}
 
-		const tmpCup: number = cupIndex;
-		const tmpBra: number = braIndex;
+		let tmpCup: number = cupIndex;
+		let tmpBra: number = braIndex;
 
 		if (brafit != null) {
-			if (brafit.indexOf("2") != -1 || brafit.indexOf("3") != -1) {
+			if (brafit.indexOf("2") != -1 || brafit.indexOf("3") != -1 ) {
 				tmpCup++;
 			}
 
-			if (brafit.indexOf("4") != -1) {
+			if (brafit.indexOf("4") != -1 ) {
 				tmpCup--;
 			}
 		}
 
 		if (bandfit != null ) {
-			if (bandfit.indexOf("2") != -1) {
+			if (bandfit.indexOf("2") != -1 ) {
 				tmpBra++;
 			}
 
-			if (bandfit.indexOf("3") != -1) {
+			if (bandfit.indexOf("3") != -1 ) {
 				tmpBra--;
 			}
 		}

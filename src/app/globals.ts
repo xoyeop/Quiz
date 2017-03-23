@@ -14,8 +14,8 @@ export class Globals {
 	padSize: number;
 	preferPadSize: number;
 
-	brafitA: number[];
-	bandfitA: number[];
+	brafitA: string[];
+	bandfitA: string[];
 
 	bustsizeA: string;
 	shoulderA: number;
