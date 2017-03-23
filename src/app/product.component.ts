@@ -12,11 +12,11 @@ import { VPROD } from './const/vprod';
 	template: `
 		<h3>구매 경험이 있는 VinaJ의 상품명을 입력해 주세요.</h3>
 		<div class="ui-g">
-			<div class="ui-g-3">Product Name:</div>
+			<div class="ui-g-3">제품명:</div>
 			<div class="ui-g-9">
 				<p-dropdown [options]="products" [(ngModel)]="selectedProduct" ></p-dropdown>
 			</div>
-			<div class="ui-g-3">Bra Size:</div>
+			<div class="ui-g-3">브라 사이즈:</div>
 			<div class="ui-g-9">
 				<p-dropdown [options]="busts" [(ngModel)]="selectedBust"></p-dropdown>
 				<p-dropdown [options]="cups" [(ngModel)]="selectedCup"></p-dropdown>
@@ -57,6 +57,8 @@ export class ProductComponent {
 		this.products.push({ label: '아이코닉', value: 'iconic' });
 		this.products.push({ label: '로고온', value: 'logoon'});
 		this.products.push({ label: '저중심', value: 'low' });
+		this.products.push({ label: '프론트집', value: 'front' });
+		this.products.push({ label: '홀겹브라', value: 'single' });
 
 		this.busts = [];
 		this.busts.push({ label: '65', value: 65 });

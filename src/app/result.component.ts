@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { Globals } from './globals';
 import { VPROD } from './const/vprod';
 import { USER } from './const/user';
+import { VSPROD } from './const/vsprod';
 
 @Component({
 	selector: 'result',
@@ -48,6 +49,7 @@ export class ResultComponent {
 		const under: number = this.globals.underSize;
 
 		const pad: number = this.globals.padSize;
+		const preferPad: number = this.globals.preferPadSize;
 
 		const brafit: number[] = this.globals.brafitA;
 		const bandfit: number[] = this.globals.bandfitA;
@@ -55,13 +57,14 @@ export class ResultComponent {
 		const bustsize: string = this.globals.bustsizeA;
 		const shoulder: number = this.globals.shoulderA;
 
-		const others: VPROD = this.globals.otherProd;
+		const others: VSPROD = this.globals.otherProd;
 
 		const prefer: number = this.globals.preferA;
 		const color: string[] = this.globals.colorA;
 		const material: string[] = this.globals.materialA;
 		
 		const way: string = this.globals.wayA;
+		const wayIn: string = this.globals.wayIn;
 
 		const user: USER = this.globals.userA;
 		
@@ -72,6 +75,7 @@ export class ResultComponent {
 			upper: upper,
 			under: under,
 			padsize: pad,
+			preferPadSize: preferPad,
 			brafit: brafit,
 			bandfit: bandfit,
 			bustsize: bustsize,
@@ -81,6 +85,7 @@ export class ResultComponent {
 			color: color,
 			material: material,
 			way: way,
+			wayIn: wayIn,
 			user: user,
 		});
 
@@ -107,76 +112,108 @@ export class ResultComponent {
 		this.findShoulder(shoulder);
 	}
 
-	findBraSize(cup: number, under: number, brafit: number[], bnadfit: number[]) {
+	findBraSize(cup: number, under: number, brafit: number[], bandfit: number[]) {
+		const sizeArr: string[] = [];
+		sizeArr[0] = ["65AA", "65A", "65B", "65C", "65D", "65DE", "65F", "65G", "65H", "65I"];
+		sizeArr[1] = ["No Size", "70AA", "70A", "70B", "70C", "70D", "70E", "70F", "70G", "70H"];
+		sizeArr[2] = ["No Size", "No Size", "75AA", "75A", "75B", "75C", "75D", "75E", "75F", "75G"];
+		sizeArr[3] = ["No Size", "No Size", "No Size", "80AA", "80A", "80B", "80C", "80D", "80E", "80F"];
+		sizeArr[4] = ["No Size", "No Size", "No Size", "No Size", "85AA", "85A", "85B", "85C", "85D", "85E"];
+		sizeArr[5] = ["No Size", "No Size", "No Size", "No Size", "No Size", "90AA", "90A", "90B", "90C", "90D"];
+
+		const braIndex: number = 5;
+		const cupIndex: number = 0;
+
 		if ( under >= 600 && 650 >= under ) {
-			if ( cup >= 100 && 120 >= cup ) this.bra = "65B";
-			else if ( 140 >= cup ) this.bra = "65C";
-			else if ( 160 >= cup ) this.bra = "65D";
-			else if ( 180 >= cup ) this.bra = "65E";
-			else if ( 200 >= cup ) this.bra = "65F";
-			else if ( 220 >= cup ) this.bra = "65G";
-			else if ( 240 >= cup ) this.bra = "65H";
-			else if ( 260 >= cup ) this.bra = "65I";
+			braIndex = 0;
+
+			if ( cup >= 100 && 120 >= cup ) cupIndex = 2;
+			else if ( 140 >= cup ) cupIndex = 3;
+			else if ( 160 >= cup ) cupIndex = 4;
+			else if ( 180 >= cup ) cupIndex = 5;
+			else if ( 200 >= cup ) cupIndex = 6;
+			else if ( 220 >= cup ) cupIndex = 7;
+			else if ( 240 >= cup ) cupIndex = 8;
+			else if ( 260 >= cup ) cupIndex = 9;
 		}
 		else if ( 700 >= under ) {
-			if ( cup >= 800 && 100 >= cup ) this.bra = "70A";
-			else if ( 120 >= cup ) this.bra = "70B";
-			else if ( 140 >= cup ) this.bra = "70C";
-			else if ( 160 >= cup ) this.bra = "70D";
-			else if ( 180 >= cup ) this.bra = "70E";
-			else if ( 200 >= cup ) this.bra = "70F";
-			else if ( 220 >= cup ) this.bra = "70G";
-			else if ( 240 >= cup ) this.bra = "70H";
+			braIndex = 1;
+
+			if ( cup >= 800 && 100 >= cup ) cupIndex = 2;
+			else if ( 120 >= cup ) cupIndex = 3;
+			else if ( 140 >= cup ) cupIndex = 4;
+			else if ( 160 >= cup ) cupIndex = 5;
+			else if ( 180 >= cup ) cupIndex = 6;
+			else if ( 200 >= cup ) cupIndex = 7;
+			else if ( 220 >= cup ) cupIndex = 8;
+			else if ( 240 >= cup ) cupIndex = 9;
 		}
 		else if ( 750 >= under ) {
-			if ( cup >= 80 && 100 >= cup ) this.bra = "75A";
-			else if ( 120 >= cup ) this.bra = "75B";
-			else if ( 140 >= cup ) this.bra = "75C";
-			else if ( 160 >= cup ) this.bra = "75D";
-			else if ( 180 >= cup ) this.bra = "75E";
-			else if ( 200 >= cup ) this.bra = "75F";
-			else if ( 220 >= cup ) this.bra = "75G";
-			else if ( 240 >= cup ) this.bra = "75H";
+			braIndex = 2;
+
+			if ( cup >= 80 && 100 >= cup ) cupIndex = 3;
+			else if ( 120 >= cup ) cupIndex = 4;
+			else if ( 140 >= cup ) cupIndex = 5;
+			else if ( 160 >= cup ) cupIndex = 6;
+			else if ( 180 >= cup ) cupIndex = 7;
+			else if ( 200 >= cup ) cupIndex = 8;
+			else if ( 220 >= cup ) cupIndex = 9;
 		}	
 		else if ( 800 >= under ) {
-			if ( cup >= 80 && 100 >= cup ) this.bra = "80A";
-			else if ( 120 >= cup ) this.bra = "80B";
-			else if ( 140 >= cup ) this.bra = "80C";
-			else if ( 160 >= cup ) this.bra = "80D";
-			else if ( 180 >= cup ) this.bra = "80E";
-			else if ( 200 >= cup ) this.bra = "80F";
-			else if ( 220 >= cup ) this.bra = "80G";
-			else if ( 240 >= cup ) this.bra = "80H";
+			braIndex = 3;
+
+			if ( cup >= 80 && 100 >= cup ) cupIndex = 4;
+			else if ( 120 >= cup ) cupIndex = 5;
+			else if ( 140 >= cup ) cupIndex = 6;
+			else if ( 160 >= cup ) cupIndex = 7;
+			else if ( 180 >= cup ) cupIndex = 8;
+			else if ( 200 >= cup ) cupIndex = 9;
 		}
 		else if ( 850 >= under ) {
-			if ( cup >= 80 && 100 >= cup ) this.bra = "85A";
-			else if ( 120 >= cup ) this.bra = "85B";
-			else if ( 140 >= cup ) this.bra = "85C";
-			else if ( 160 >= cup ) this.bra = "85D";
-			else if ( 180 >= cup ) this.bra = "85E";
-			else if ( 200 >= cup ) this.bra = "85F";
-			else if ( 220 >= cup ) this.bra = "85G";
-			else if ( 240 >= cup ) this.bra = "85H";
+			braIndex = 4;
+
+			if ( cup >= 80 && 100 >= cup ) cupIndex = 5;
+			else if ( 120 >= cup ) cupIndex = 6;
+			else if ( 140 >= cup ) cupIndex = 7;
+			else if ( 160 >= cup ) cupIndex = 8;
+			else if ( 180 >= cup ) cupIndex = 9;
 		}
-		else {
-			this.bra = "No Size";
+		else if ( 900 >= under ) {
+			braIndex = 5;
+
+			if ( cup >= 80 && 100 >= cup ) cupIndex = 6;
+			else if ( 120 >= cup ) cupIndex = 7;
+			else if ( 140 >= cup ) cupIndex = 8;
+			else if ( 160 >= cup ) cupIndex = 9;
 		}
 
-		/*
-		if (brafit.includes(2) || brafit.includes(3)) {
-			const tmp_b: string = this.bra.substr(0,2);
-			const tmp_c: string = this.bra.substr(2,1);
-			console.log("tmp", tmp_c);
+		const tmpCup: number = cupIndex;
+		const tmpBra: number = braIndex;
 
-			if (tmp_c == "A") this.bra = tmp_b + "B";
-			else if (tmp_c == "B") this.bra = tmp_b + "C";
-			else if (tmp_c == "C") this.bra = tmp_b + "D";
-			else if (tmp_c == "D") this.bra = tmp_b + "E";
-			else if (tmp_c == "E") this.bra = tmp_b + "F";
-			else if (tmp_c == "F") this.bra = tmp_b + "G";
-			else if (tmp_c == "G") this.bra = tmp_b + "H";
+		if (brafit != null) {
+			if (brafit.indexOf("2") != -1 || brafit.indexOf("3") != -1) {
+				tmpCup++;
+			}
+
+			if (brafit.indexOf("4") != -1) {
+				tmpCup--;
+			}
 		}
-		*/
+
+		if (bandfit != null ) {
+			if (bandfit.indexOf("2") != -1) {
+				tmpBra++;
+			}
+
+			if (bandfit.indexOf("3") != -1) {
+				tmpBra--;
+			}
+		}
+
+		if (tmpCup >= 0 || tmpCup < 10) cupIndex = tmpCup;
+		if (tmpBra >= 0 || tmpBra < 6) braIndex = tmpBra;
+
+		this.bra = sizeArr[braIndex][cupIndex];
 	}
 	
 	findBustPad(bustsize: string) {

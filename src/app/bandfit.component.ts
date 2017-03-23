@@ -6,7 +6,7 @@ import { Globals } from './globals';
 @Component({
 	selector: 'bandfit',
 	template: `
-		<h3>브라 밴드의 피팅 상태는 어떤가요?</h3>
+		<h3>구입하신 비나제이 브라의 밴드 피팅 상태는 어떤가요?</h3>
 		<div class="ui-g" style="margin-bottom:10px; text-align: center">
 			<div class="ui-g-12">
 				<img src="./resources/img/bandfit_img_1.png" width="40%"/><br/>

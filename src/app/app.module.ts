@@ -33,6 +33,7 @@ import { MaterialComponent } from './material.component';
 import { WayComponent } from './way.component';
 import { UserComponent } from './user.component';
 import { ResultComponent } from './result.component';
+import { PreferPadComponent } from './preferpad.component';
 
 import { AdminLoginComponent } from './admin-login.component';
 import { AdminBrowseComponent } from './admin-browse.component';
@@ -72,6 +73,7 @@ import { AppService } from './app.service';
 		ResultComponent,
 		AdminLoginComponent,
 		AdminBrowseComponent,
+		PreferPadComponent,
 	],
 	providers: [
 		Globals,

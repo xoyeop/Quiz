@@ -15,7 +15,8 @@ import { Globals } from './globals';
 			<div class="ui-g-12"><p-radioButton name="group1" value=5 label="Full컵 브라" [(ngModel)]="selectedPrefer"></p-radioButton></div>
 			<div class="ui-g-12"><p-radioButton name="group1" value=6 label="홑겹 브라" [(ngModel)]="selectedPrefer"></p-radioButton></div>
 			<div class="ui-g-12"><p-radioButton name="group1" value=7 label="노와이어 브라" [(ngModel)]="selectedPrefer"></p-radioButton></div>
-			<div class="ui-g-12"><p-radioButton name="group1" value=8 label="기타"></p-radioButton></div>
+			<div class="ui-g-12"><p-radioButton name="group1" value=8 label="스포츠 브라" [(ngModel)]="selectedPrefer"></p-radioButton></div>
+			<div class="ui-g-12"><p-radioButton name="group1" value=9 label="기타"></p-radioButton></div>
 		</div>
 		<br/>
 		<button pButton type="button" (click)="goBack()" label="BACK"></button>
@@ -42,7 +43,6 @@ export class PreferComponent {
 	goNext() {
 		this.globals.preferA = null;
 		this.globals.preferA = this.selectedPrefer;
-		console.log(this.globals.preferA);
 
 		this.router.navigate(['/color']);
 	}

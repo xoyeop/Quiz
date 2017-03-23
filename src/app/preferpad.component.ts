@@ -6,9 +6,9 @@ import { DropdownModule, SelectItem, ButtonModule } from 'primeng/primeng';
 import { Globals } from './globals';
 
 @Component({
-	selector: 'pad',
+	selector: 'preferpad',
 	template: `
-		<h3>구입하신 비나제이 브라의 패드 두께를 선택해 주세요.</h3>
+		<h3>선호하는 브라의 패드 두께를 선택해 주세요.</h3>
 		<p-dropdown [options]="pads" [(ngModel)]="selectedPad"></p-dropdown>
 
 		<br/><br/>
@@ -21,7 +21,7 @@ import { Globals } from './globals';
 	`]
 })
 
-export class PadComponent {
+export class PreferPadComponent {
 	pads: SelectItem[];
 
 	selectedPad: number = 0;
@@ -34,18 +34,19 @@ export class PadComponent {
 		this.pads = [];
 		this.pads.push({label: '노패드', value: 0});
 		this.pads.push({label: '0.4mm', value: 0.4});
-		this.pads.push({label: '1.5cm', value: 1.5});
-		this.pads.push({label: '3cm', value: 3});
+		this.pads.push({label: '1.5cm (약볼륨)', value: 1.5});
+		this.pads.push({label: '3cm (강볼륨)', value: 3});
+		this.pads.push({label: '5cm (왕뽕)', value: 5});
 	}
 	
 	goBack() {
-		this.router.navigate(['/size']);
+		this.router.navigate(['/pad']);
 	}
 
 	goNext() {
-		this.globals.padSize = null;
-		this.globals.padSize = this.selectedPad;
+		this.globals.preferPadSize = null;
+		this.globals.preferPadSize = this.selectedPad;
 
-		this.router.navigate(['/preferpad']);
+		this.router.navigate(['/brafit']);
 	}
 }

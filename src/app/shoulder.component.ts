@@ -6,7 +6,7 @@ import { Globals } from './globals';
 @Component({
 	selector: 'shoulder',
 	template: `
-		<h3>어깨끈의 피팅 상태는 어떠한가요?</h3>
+		<h3>구입하신 비나제이 브라의 어깨끈 피팅 상태는 어떠한가요?</h3>
 		<div class="ui-g" style="margin-bottom:10px; text-align:center">
 			<div class="ui-g-12">
 				<img src="./resources/img/shoulder_img_1.png" width="40%"/><br/>
@@ -47,7 +47,6 @@ export class ShoulderComponent {
 	goNext() {
 		this.globals.shoulderA = null;
 		this.globals.shoulderA = this.selectedShoulder;
-		console.log(this.globals.shoulderA);
 
 		this.router.navigate(['/others']);
 	}

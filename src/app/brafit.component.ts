@@ -6,7 +6,7 @@ import { Globals } from './globals';
 @Component({
 	selector: 'brafit',
 	template: `
-		<h3>현재 브래지어의 피팅 상태는 어떤가요?</h3>
+		<h3>구입하신 비나제이 브라의 피팅 상태는 어떤가요?</h3>
 		<div class="ui-g" style="text-align: center">
 			<div class="ui-g-4">
 				<img src="./resources/img/brafit_img_1.png" width="70%" /><br/>
@@ -49,7 +49,7 @@ export class BrafitComponent {
 	selectedFit: number[] = [];
 
 	goBack() {
-		this.router.navigate(['/pad']);
+		this.router.navigate(['/preferpad']);
 	}
 
 	goNext() {

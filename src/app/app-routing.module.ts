@@ -17,6 +17,7 @@ import { MaterialComponent } from './material.component';
 import { WayComponent } from './way.component';
 import { UserComponent } from './user.component';
 import { ResultComponent } from './result.component';
+import { PreferPadComponent } from './preferpad.component';
 
 import { AdminLoginComponent } from './admin-login.component';
 import { AdminBrowseComponent } from './admin-browse.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
 	{ path: 'result', component: ResultComponent },
 	{ path: 'admin-login', component: AdminLoginComponent },
 	{ path: 'admin-browse', component: AdminBrowseComponent },
+	{ path: 'preferpad', component: PreferPadComponent },
 ];
 
 @NgModule({
